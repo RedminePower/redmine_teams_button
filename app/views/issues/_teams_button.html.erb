@@ -1,0 +1,48 @@
+<%= javascript_tag do %>
+    $(document).ready(function() 
+    {
+        // user クラスを探す。
+        $('.user.active').each(function ()
+        {
+            var userId = $(this)[0].href.split("/").slice(-1)[0];
+
+            // 編集ボタンの前に、ボタンを追加する。
+            $('<a>', {
+            'class': 'icon icon-teams',
+            text: ' ',
+            href: '<%= edit_issue_path(@issue) %>',
+            click: function()
+            {
+                const defer = $.Deferred();
+                let promise = defer.promise();
+                promise = promise.then(getUser(userId));
+                promise
+                    .done(function(response) {
+                        window.open('https://teams.microsoft.com/l/chat/0/0?users=' + response.user.mail + "&message=123" );
+                    })
+                    .fail(function() {
+                        alert('Failed');
+                    });
+
+                defer.resolve();
+
+                return false;
+            }}).appendTo($(this));
+        });
+    });
+    
+    function getUser(userId) 
+    {
+        return function() 
+        {
+            return $.ajax({
+                type: 'GET',
+                url: '/redmine/users/' + userId + '.json',
+                headers: {
+                  'X-Redmine-API-Key': '9020ebcff41334eb3ac4483f0f29e5d3a94081f5'
+                },
+                contentType: 'application/json',
+            });
+        };
+    }
+<% end %>

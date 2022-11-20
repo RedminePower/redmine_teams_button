@@ -43,7 +43,7 @@ Redmine::Plugin.register :redmine_teams_button do
     #---------------------------
     # プロジェクト毎に有効/無効を設定可能にする。
     #---------------------------
-    project_module :redmine_teams_button do
-        permission :redmine_teams_button, :redmine_teams_button => [:index]
+    project_module :teams_button do
+        permission :teams_button, :teams_button => [:index]
     end
 end
