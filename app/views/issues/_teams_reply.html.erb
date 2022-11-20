@@ -1,0 +1,72 @@
+<%= javascript_tag do %>
+    $(document).ready(function() 
+    {
+        // チケット上部の「編集、時間の記録、ウォッチ、コピー」に対して繰り返し実行する
+        $('#content > .contextual').each(function () 
+        {
+            // 編集ボタンを探す
+            var edit = $(this).find('.user.active');
+            // 編集ボタンが見つかった場合
+            if (edit.length > 0) 
+            {
+                // まだ編集フォームが開いてない場合
+                if ($('#update .edit_issue .box > fieldset.tabular').length > 0)
+                {
+                  // 個人設定の「コメントの表示順」が「古い順(デフォルト)」ならば「false」、「新しい順」ならば「true」となる。
+                  var reverseOrder = <%= User.current.wants_comments_in_reverse_order? %>;
+                  // 個人設定の「コメントの表示順」が「新しい順」ならば、変更履歴より上部に更新フォームを移動する。
+                  if (reverseOrder) $('#update').prependTo($('history'));
+                  
+                  // 編集ボタンの前に、ボタンを追加する。
+                  $('<a>', {
+                    'class': 'icon icon-teams',
+                    text: 'Teams',
+                    href: '<%= edit_issue_path(@issue) %>',
+                    click: function()
+                    {
+                        // 担当を取得する。
+                        var users = $(".assigned-to").find(".user");
+                        if (users.length <= 0) return false;
+                        var userId = users[0].href.split("/").slice(-1)[0];
+
+                        const defer = $.Deferred();
+                        let promise = defer.promise();
+                        promise = promise.then(getUser(userId));
+                        promise
+                            .done(function(response) {
+                                window.open('https://teams.microsoft.com/l/chat/0/0?users=' + response.user.mail + "&message=123" );
+                            })
+                            .fail(function() {
+                                alert('Failed');
+                            });
+
+                        defer.resolve();
+
+                        return false;
+                    }}).prependTo($(this));
+                }
+                // 既に編集ダイアログが開いている場合
+                else
+                {
+                  edit.text('<%= escape_javascript(l(:button_reply)) %>').removeClass('icon-edit').addClass('icon-arrow-right');
+                }
+            }
+        });
+    });
+
+ function getUser(userId) {
+
+    return function() {
+
+      return $.ajax({
+        type: 'GET',
+        url: '/redmine/users/' + userId + '.json',
+        headers: {
+          'X-Redmine-API-Key': '9020ebcff41334eb3ac4483f0f29e5d3a94081f5'
+        },
+        contentType: 'application/json',
+      });
+
+    };
+  }
+<% end %>
