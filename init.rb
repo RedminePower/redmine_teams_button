@@ -40,6 +40,10 @@ Redmine::Plugin.register :redmine_teams_button do
     url 'https://github.com/RedminePower/redmine_teams_button'
     version '1.0.0'
 
+    # プラグイン設定の追加
+    # Setting.plugin_polls で利用できる
+    settings default: {'empty' => true}, partial: 'settings/redmine_teams_button'
+  
     #---------------------------
     # プロジェクト毎に有効/無効を設定可能にする。
     #---------------------------
