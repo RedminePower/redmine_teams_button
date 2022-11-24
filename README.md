@@ -13,7 +13,7 @@ Place the plugin source at Redmine plugins directory.
 
 ```
 $ cd /var/lib/redmine/plugins
-$ git clone https://github.com/SabastianGambrell/redmine_reply_button
+$ git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
 
 ## How to activate the Issues Panel
