@@ -4,7 +4,7 @@
 
 - This plugin adds a Teams button to the user name displayed on the ticket screen.
 - When the Teams button is clicked, a chat will be launched in Teams with ticket information appended for the specified user.
-- The "refs" keyword will also be added to allow integration with Redmine Time Puncher.
+- The "refs" keyword will also be added to allow integration with [Redmine Time Puncher](https://www.en.redmine-power.com/).
 
 ![image](https://user-images.githubusercontent.com/87136359/203757869-95b83d38-1639-442a-b87d-d012f4ed7961.png)
 
