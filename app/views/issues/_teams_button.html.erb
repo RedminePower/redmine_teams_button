@@ -14,6 +14,11 @@
                 href: 'https://teams.microsoft.com/l/chat/0/0',
                 click: function()
                 {
+                    if(!'<%= @redmine_teams_button_api_access_key %>')
+                    {
+                        alert('<%= l(:error_api_key_not_set) %>');
+                    }
+
                     const defer = $.Deferred();
                     let promise = defer.promise();
                     promise = promise.then(sendApi('GET', url + '.json'));
