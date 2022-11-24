@@ -6,8 +6,7 @@
 - Teamsのチャットボタンを押下すると、指定されたユーザーに対して、チケット情報を付加してチャットを起動します。
 - [Redmine Time Puncher](https://www.redmine-power.com/) との連携ができるように、「refs」キーワードも付加されます。
 
-![image](https://user-images.githubusercontent.com/87136359/203734133-a4aa09c5-ae40-42a7-b109-84b15db5c674.png)
-![image](https://user-images.githubusercontent.com/87136359/203736691-7f1f25f2-257f-420a-ba83-5c78e827e520.png)
+![image](https://user-images.githubusercontent.com/87136359/203744934-0c5877ee-4772-4601-8236-ec397cf33b9c.png)
 
 ## インストール
 
@@ -25,8 +24,7 @@ $ git clone https://github.com/RedminePower/redmine_teams_button.git
   - Teamsを起動するために、メールアドレスを取得します。
   - メールアドレスを取得するためには、システム管理者のAPIアクセスキーが必要になります。
 
-![image](https://user-images.githubusercontent.com/87136359/203742421-283ff406-20db-4c77-9138-4979a1cd99e0.png)
-![image](https://user-images.githubusercontent.com/87136359/203740020-339dfaab-b52f-400f-aaad-dbca95c36c9b.png)
+![image](https://user-images.githubusercontent.com/87136359/203745310-55a4f905-73fe-4aa3-92f7-6262d1f6fa32.png)
 
 ## 有効化方法
 
