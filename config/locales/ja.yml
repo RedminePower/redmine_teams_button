@@ -1,2 +1,4 @@
 ja:
   option_api_access_key: "システム管理者のAPIアクセスキー"
+  error_api_fail: "API送信に失敗しました。"
+  error_failed_to_get_email:  "メールアドレスの取得に失敗しました。APIアクセスキーが間違えている可能性があります。プラグインの設定を見直してください。"

@@ -1,2 +1,4 @@
 en:
   option_api_access_key: "API access key of an administrator"
+  error_api_fail: "Failed to send API."
+  error_failed_to_get_email: "Failed to get email address. The API access key may be incorrect. Please review the plugin settings."

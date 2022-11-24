@@ -1,45 +1,61 @@
 <%= javascript_tag do %>
     $(document).ready(function() 
     {
-        // user クラスを探す。
-        $('.user.active').each(function ()
+        <%# user クラスを探す。 %>
+        $('#main .user').each(function ()
         {
-            var userId = $(this)[0].href.split("/").slice(-1)[0];
+            var url = $(this)[0].pathname;
 
-            // 編集ボタンの前に、ボタンを追加する。
-            $('<a>', {
-            'class': 'icon icon-teams',
-            text: ' ',
-            href: '<%= edit_issue_path(@issue) %>',
-            click: function()
+            <%# Teamsボタンを追加する。 %>
+            $('<a>', 
             {
-                const defer = $.Deferred();
-                let promise = defer.promise();
-                promise = promise.then(getUser(userId));
-                promise
-                    .done(function(response) {
-                        window.open('https://teams.microsoft.com/l/chat/0/0?users=' + response.user.mail + "&message=123" );
+                'class': 'icon-teams',
+                text: '',
+                href: 'https://teams.microsoft.com/l/chat/0/0',
+                click: function()
+                {
+                    const defer = $.Deferred();
+                    let promise = defer.promise();
+                    promise = promise.then(sendApi('GET', url + '.json'));
+                    promise.done(function(response) 
+                    {
+                        if(response.user.mail == null)
+                        {
+                            alert('<%= l(:error_failed_to_get_email) %>');
+                        }
+                        else
+                        {
+                            teamsUrl = 
+                                'https://teams.microsoft.com/l/chat/0/0?users=' + response.user.mail +  
+                                "&message=" 
+                                + encodeURIComponent(document.title) + "%0D%0A" 
+                                + encodeURIComponent(location.href) + "%0D%0A" 
+                                + encodeURIComponent("refs #" + '<%= @issue.id %>');
+                            console.log(teamsUrl)
+                            window.open(teamsUrl);
+                        }
                     })
-                    .fail(function() {
-                        alert('Failed');
+                    .fail(function(message) 
+                    {
+                        alert('<%= l(:error_api_fail) %>');
                     });
 
-                defer.resolve();
-
-                return false;
-            }}).appendTo($(this));
+                    defer.resolve();
+                    return false;
+                }
+            }).insertAfter($(this));
         });
     });
     
-    function getUser(userId) 
+    function sendApi(_type, url) 
     {
         return function() 
         {
             return $.ajax({
-                type: 'GET',
-                url: '/redmine/users/' + userId + '.json',
+                type: _type,
+                url:  url,
                 headers: {
-                  'X-Redmine-API-Key': '9020ebcff41334eb3ac4483f0f29e5d3a94081f5'
+                  'X-Redmine-API-Key': '<%= @redmine_teams_button_api_access_key %>'
                 },
                 contentType: 'application/json',
             });
