@@ -1,10 +1,8 @@
-# redmine_reply_button
+# redmine_teams_button
 
-This plugin adds a Reply button to tickets. It is useful for ticket-driven development.
+This plugin adds a Teams button to tickets. It is useful for ticket-driven development.
 
 ## Features
-
-![image](https://user-images.githubusercontent.com/115391518/194808276-6ba1eaa2-67d0-47fa-b3d2-fa1de7f284d6.png)
 
 ## Install
 
@@ -15,14 +13,10 @@ Place the plugin source at Redmine plugins directory.
 
 ```
 $ cd /var/lib/redmine/plugins
-$ git clone https://github.com/SabastianGambrell/redmine_reply_button
+$ git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
 
 ## How to activate the Issues Panel
-
-Check the 'Issue reply button' checkbox on the Project->Settings->Modules and save it.
-
-![image](https://user-images.githubusercontent.com/115391518/194808119-83ecad95-5fcc-4d0b-b6e5-d04a56478ad2.png)
 
 ## Uninstall
 
