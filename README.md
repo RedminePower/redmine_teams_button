@@ -24,7 +24,7 @@ $ git clone https://github.com/RedminePower/redmine_teams_button.git
   - Obtain an email address to activate Teams.
   - The system administrator's API access key is required to obtain an email address.
 
-![image](https://user-images.githubusercontent.com/87136359/203755581-9e48b0f2-d399-4d16-80f2-d21f71c37f5b.png)
+![image](https://user-images.githubusercontent.com/87136359/203758129-6a5db4c0-2089-4d4d-8290-feed53b73f00.png)
 
 ## How to activate
 
