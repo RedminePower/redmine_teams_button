@@ -17,6 +17,7 @@
                     if(!'<%= @redmine_teams_button_api_access_key %>')
                     {
                         alert('<%= l(:error_api_key_not_set) %>');
+                        return false;
                     }
 
                     const defer = $.Deferred();
