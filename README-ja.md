@@ -8,6 +8,11 @@
 
 ![image](https://user-images.githubusercontent.com/87136359/203744934-0c5877ee-4772-4601-8236-ec397cf33b9c.png)
 
+## 利用環境
+
+- Teamsを起動するために、DeepLinkという機能を使っています。
+- DeepLinkを使うために、Office365が入っている必要があります。
+
 ## インストール
 
 Redmineのプラグインのディレクトリにて、以下を実行してください。
