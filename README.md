@@ -8,6 +8,11 @@
 
 ![image](https://user-images.githubusercontent.com/87136359/203757869-95b83d38-1639-442a-b87d-d012f4ed7961.png)
 
+## Requirements
+
+- This plug-in uses a feature called DeepLink to launch Teams.
+- To use DeepLink, Office365 must be installed.
+
 ## Install
 
 Place the plugin source at Redmine plugins directory.
