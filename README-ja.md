@@ -30,6 +30,8 @@ $ git clone https://github.com/RedminePower/redmine_teams_button.git
 
 - 各プロジェクトの「設定」にて、「Teams Button」にチェックを入れてください。
 
+![image](https://user-images.githubusercontent.com/87136359/203876971-d3fdcf06-2194-4570-9a18-27914e59efe7.png)
+
 ## アンインストール
 
 - 配置したプラグインフォルダを削除してください。
