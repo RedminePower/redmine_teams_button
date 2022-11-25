@@ -10,7 +10,7 @@
 
 ## Requirements
 
-- This plug-in uses a feature called DeepLink to launch Teams.
+- This plugin uses a feature called DeepLink to launch Teams.
 - To use DeepLink, Office365 must be installed.
 
 ## Install
