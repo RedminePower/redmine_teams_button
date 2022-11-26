@@ -4,18 +4,20 @@
 
 - This plugin adds a Teams button to the user name displayed on the ticket screen.
 - When the Teams button is clicked, a chat will be launched in Teams with ticket information appended for the specified user.
-- The "refs" keyword will also be added to allow integration with [Redmine Time Puncher](https://www.en.redmine-power.com/).
+- This plugin can be used together with [Redmine Time Puncher](https://www.en.redmine-power.com/).
 
 ![image](https://user-images.githubusercontent.com/87136359/203757869-95b83d38-1639-442a-b87d-d012f4ed7961.png)
 
-## Requirements
-
-- This plugin uses a feature called DeepLink to launch Teams.
-- To use DeepLink, Office365 must be installed.
+## Supported Redmine
+- V5.x.x (Tested by V5.0.3)
+- V4.x.x (Tested by V4.2.3)
+  
+## Supported Client
+- Must be using Office365.
+  - Because the DeepLink function is used to launch Teams.
 
 ## Install
-
-Place the plugin source at Redmine plugins directory.
+- Place the plugin source at Redmine plugins directory.
 
 ```
 $ cd /var/lib/redmine/plugins
@@ -24,6 +26,7 @@ $ git clone https://github.com/RedminePower/redmine_teams_button.git
 
 ## How to setting
 
+- Go to "Administration" - "Settings" - "API" and check "Enable REST web service".
 - Go to "Administration" - "Plugins" and click "Configure" for "Redmine Teams Button".
 - Specify the API access key of your system administrator.
   - Obtain an email address to activate Teams.
