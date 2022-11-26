@@ -13,7 +13,7 @@
 - V4.x.x (Tested by V4.2.3)
   
 ## Supported Client
-- Must be using Office365.
+- Must be using Office365. (Tested by Windows10, Android)
   - Because the DeepLink function is used to launch Teams.
 
 ## Install
