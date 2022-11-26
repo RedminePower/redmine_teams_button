@@ -1,4 +1,4 @@
-module TeamsButton
+module RedmineTeamsButton
     module IssuesControllerPatch
         def initialize
             super
@@ -7,4 +7,6 @@ module TeamsButton
    end
 end
 
-IssuesController.prepend(TeamsButton::IssuesControllerPatch)
+unless IssuesController.included_modules.include?(RedmineTeamsButton::IssuesControllerPatch)
+  IssuesController.send(:include, RedmineTeamsButton::IssuesControllerPatch)
+end
