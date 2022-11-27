@@ -14,7 +14,7 @@
                 href: 'https://teams.microsoft.com/l/chat/0/0',
                 click: function()
                 {
-                    if(!'<%= @redmine_teams_button_api_access_key %>')
+                    if(!'<%= Setting.plugin_redmine_teams_button['api_access_key'] %>')
                     {
                         alert('<%= l(:error_api_key_not_set) %>');
                         return false;
@@ -61,7 +61,7 @@
                 type: _type,
                 url:  url,
                 headers: {
-                  'X-Redmine-API-Key': '<%= @redmine_teams_button_api_access_key %>'
+                  'X-Redmine-API-Key': '<%= Setting.plugin_redmine_teams_button['api_access_key'] %>'
                 },
                 contentType: 'application/json',
             });
