@@ -1,4 +1,4 @@
-# redmine_teams_button
+# redmine teams button
 
 ## Features
 
