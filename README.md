@@ -1,50 +1,47 @@
-# redmine teams button
+# redmine_teams_button
 
 ## Features
 
 - This plugin adds a Teams button to the user name displayed on the ticket screen.
 - When the Teams button is clicked, a chat will be launched in Teams with ticket information appended for the specified user.
-- This plugin can be used together with [Redmine Time Puncher](https://www.en.redmine-power.com/).
+- This plugin can be used together with [Redmine Studio](https://www.redmine-power.com/) for enhanced productivity.
 
 ![image](https://user-images.githubusercontent.com/87136359/203757869-95b83d38-1639-442a-b87d-d012f4ed7961.png)
 
 ## Supported Redmine
-- V5.x.x (Tested by V5.0.3)
-- V4.x.x (Tested by V4.2.3)
-  
+
+- V5.x (Tested on V5.1.11)
+- V6.x (Tested on V6.1.1)
+
 ## Supported Client
-- Must be using Office365. (Tested by Windows10, Android)
-  - Because the DeepLink function is used to launch Teams.
 
-## Install
-- Place the plugin source at Redmine plugins directory.
+- Must be using Office365 (Tested on Windows10, Android)
+  - Because the DeepLink function is used to launch Teams
 
+## Installation
+
+Run the following commands in the Redmine plugins folder.
+
+```bash
+cd /path/to/redmine/plugins
+git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
-$ cd /var/lib/redmine/plugins
-$ git clone https://github.com/RedminePower/redmine_teams_button.git
-```
 
-## How to setting
+## Activation
 
-- Go to "Administration" - "Settings" - "API" and check "Enable REST web service".
-- Go to "Administration" - "Plugins" and click "Configure" for "Redmine Teams Button".
-- Specify the API access key of your system administrator.
-  - Obtain an email address to activate Teams.
-  - The system administrator's API access key is required to obtain an email address.
+This feature can be enabled or disabled per project.
+The "Teams" button will not appear unless the following settings are configured.
 
-![image](https://user-images.githubusercontent.com/87136359/203758129-6a5db4c0-2089-4d4d-8290-feed53b73f00.png)
-
-## How to activate
-
-- In the "Settings" of each project, check the "Teams Button" checkbox.
+1. Go to project "Settings"
+2. In the "Project" tab, check "Teams button" under "Modules" and save
 
 ![image](https://user-images.githubusercontent.com/87136359/203755775-83a29a4a-67eb-405b-9f05-d22c06592074.png)
 
 ## Uninstall
 
-Remove the plugin directory.
+Remove the plugin folder.
 
-```
-$ cd /var/lib/redmine/plugins
-$ rm -rf redmine_teams_button
+```bash
+cd /path/to/redmine/plugins
+rm -rf redmine_teams_button
 ```

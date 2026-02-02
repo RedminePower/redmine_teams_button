@@ -1,70 +1,38 @@
 <%= javascript_tag do %>
-    $(document).ready(function() 
-    {
-        <%# user クラスを探す。 %>
-        $('#main .user').each(function ()
-        {
-            var url = $(this)[0].pathname;
+    $(document).ready(function() {
+        $('#main .user').each(function() {
+            var userId = $(this)[0].pathname.split('/').pop();
 
-            <%# Teamsボタンを追加する。 %>
-            $('<a>', 
-            {
+            $('<a>', {
                 'class': 'icon-teams',
                 text: '',
                 href: 'https://teams.microsoft.com/l/chat/0/0',
-                click: function()
-                {
-                    if(!'<%= Setting.plugin_redmine_teams_button['api_access_key'] %>')
-                    {
-                        alert('<%= l(:error_api_key_not_set) %>');
-                        return false;
-                    }
-
-                    const defer = $.Deferred();
-                    let promise = defer.promise();
-                    promise = promise.then(sendApi('GET', url + '.json'));
-                    promise.done(function(response) 
-                    {
-                        if(response.user.mail == null)
-                        {
+                click: function() {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/teams_button/user_email/' + userId,
+                        dataType: 'json'
+                    })
+                    .done(function(response) {
+                        if (response.email === null) {
                             alert('<%= l(:error_failed_to_get_email) %>');
-                        }
-                        else
-                        {
-                            teamsUrl = 
-                                'https://teams.microsoft.com/l/chat/0/0?users=' + response.user.mail +  
-                                "&message=" 
-                                + encodeURIComponent(document.title) + "%0D%0A" 
-                                + encodeURIComponent(location.href) + "%0D%0A" 
-                                + encodeURIComponent("refs #" + '<%= @issue.id %>');
-                            console.log(teamsUrl)
+                        } else {
+                            var teamsUrl =
+                                'https://teams.microsoft.com/l/chat/0/0?users=' + response.email +
+                                '&message=' +
+                                encodeURIComponent(document.title) + '%0D%0A' +
+                                encodeURIComponent(location.href) + '%0D%0A' +
+                                encodeURIComponent('refs #' + '<%= @issue.id %>');
                             window.open(teamsUrl);
                         }
                     })
-                    .fail(function(message) 
-                    {
-                        alert('<%= l(:error_api_fail) %>');
+                    .fail(function() {
+                        alert('<%= l(:error_failed_to_get_email) %>');
                     });
 
-                    defer.resolve();
                     return false;
                 }
             }).insertAfter($(this));
         });
     });
-    
-    function sendApi(_type, url) 
-    {
-        return function() 
-        {
-            return $.ajax({
-                type: _type,
-                url:  url,
-                headers: {
-                  'X-Redmine-API-Key': '<%= Setting.plugin_redmine_teams_button['api_access_key'] %>'
-                },
-                contentType: 'application/json',
-            });
-        };
-    }
 <% end %>
