@@ -20,10 +20,20 @@
 
 ## インストール
 
+Redmine のインストール先はお使いの環境によって異なります。
+以下の説明では `/var/lib/redmine` を使用しています。
+お使いの環境に合わせて変更してください。
+
+| 環境 | Redmine パス |
+|------|-------------|
+| apt (Debian/Ubuntu) | `/var/lib/redmine` |
+| Docker (公式イメージ) | `/usr/src/redmine` |
+| Bitnami | `/opt/bitnami/redmine` |
+
 Redmine のプラグインフォルダにて、以下を実行してください。
 
 ```bash
-cd /path/to/redmine/plugins
+cd /var/lib/redmine/plugins
 git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
 
@@ -39,9 +49,9 @@ git clone https://github.com/RedminePower/redmine_teams_button.git
 
 ## アンインストール
 
-プラグインフォルダを削除してください。
+プラグインのフォルダを削除してください。
 
 ```bash
-cd /path/to/redmine/plugins
+cd /var/lib/redmine/plugins
 rm -rf redmine_teams_button
 ```

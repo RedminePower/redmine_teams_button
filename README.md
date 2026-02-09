@@ -20,10 +20,20 @@
 
 ## Installation
 
+The Redmine installation path varies depending on your environment.
+The following instructions use `/var/lib/redmine`.
+Please adjust according to your environment.
+
+| Environment | Redmine Path |
+|-------------|--------------|
+| apt (Debian/Ubuntu) | `/var/lib/redmine` |
+| Docker (Official Image) | `/usr/src/redmine` |
+| Bitnami | `/opt/bitnami/redmine` |
+
 Run the following commands in the Redmine plugins folder.
 
 ```bash
-cd /path/to/redmine/plugins
+cd /var/lib/redmine/plugins
 git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
 
@@ -39,9 +49,9 @@ The "Teams" button will not appear unless the following settings are configured.
 
 ## Uninstall
 
-Remove the plugin folder.
+Remove this plugin's folder.
 
 ```bash
-cd /path/to/redmine/plugins
+cd /var/lib/redmine/plugins
 rm -rf redmine_teams_button
 ```
