@@ -1,57 +1,59 @@
 # redmine_teams_button
 
-## Features
+ユーザー名の横に「Teams」ボタンを追加し、ワンクリックでチャットを開始できるプラグインです。
 
-- This plugin adds a Teams button to the user name displayed on the ticket screen.
-- When the Teams button is clicked, a chat will be launched in Teams with ticket information appended for the specified user.
-- This plugin can be used together with [Redmine Studio](https://www.redmine-power.com/) for enhanced productivity.
+## 機能
+
+- 「Teams」ボタンをクリックすると、そのユーザーとの Teams チャットが開く
+- チャットにはチケット情報（タイトル、URL、チケット番号）が自動入力される
+- [Redmine Studio](https://www.redmine-power.com/) と併用するとさらに便利
 
 ![image](https://user-images.githubusercontent.com/87136359/203757869-95b83d38-1639-442a-b87d-d012f4ed7961.png)
 
-## Supported Redmine
+## 対応クライアント
 
-- V5.x (Tested on V5.1.11)
-- V6.x (Tested on V6.1.1)
+- Office365 を利用していること（Windows10、Android で動作確認済み）
+  - Teams を起動するために、DeepLink 機能を使用しているため
 
-## Supported Client
+## 対応バージョン
 
-- Must be using Office365 (Tested on Windows10, Android)
-  - Because the DeepLink function is used to launch Teams
+- Redmine 5.x（5.1.11 にて動作確認済み）
+- Redmine 6.x（6.1.1 にて動作確認済み）
 
-## Installation
+## インストール
 
-The Redmine installation path varies depending on your environment.
-The following instructions use `/var/lib/redmine`.
-Please adjust according to your environment.
+Redmine のインストール先はお使いの環境によって異なります。
+以下の説明では `/var/lib/redmine` を使用しています。
+お使いの環境に合わせて変更してください。
 
-| Environment | Redmine Path |
-|-------------|--------------|
+| 環境 | Redmine パス |
+|------|-------------|
 | apt (Debian/Ubuntu) | `/var/lib/redmine` |
-| Docker (Official Image) | `/usr/src/redmine` |
+| Docker (公式イメージ) | `/usr/src/redmine` |
 | Bitnami | `/opt/bitnami/redmine` |
 
-Run the following commands in the Redmine plugins folder.
+以下を実行し、Redmine を再起動してください。
 
-```bash
-cd /var/lib/redmine/plugins
-git clone https://github.com/RedminePower/redmine_teams_button.git
+```
+$ cd /var/lib/redmine/plugins
+$ git clone https://github.com/RedminePower/redmine_teams_button.git
 ```
 
-## Activation
+## 有効化
 
-This feature can be enabled or disabled per project.
-The "Teams" button will not appear unless the following settings are configured.
+本機能はプロジェクトごとに有効・無効を切り替えられます。
+以下の設定を行わないと「Teams」ボタンは表示されません。
 
-1. Go to project "Settings"
-2. In the "Project" tab, check "Teams button" under "Modules" and save
+1. プロジェクトの「設定」を開く
+2. 「プロジェクト」タブ内の「モジュール」で「Teams button」にチェックを入れて保存
 
 ![image](https://user-images.githubusercontent.com/87136359/203755775-83a29a4a-67eb-405b-9f05-d22c06592074.png)
 
-## Uninstall
+## アンインストール
 
-Remove this plugin's folder.
+プラグインフォルダを削除し、Redmine を再起動してください。
 
-```bash
-cd /var/lib/redmine/plugins
-rm -rf redmine_teams_button
+```
+$ cd /var/lib/redmine/plugins
+$ rm -rf redmine_teams_button
 ```
