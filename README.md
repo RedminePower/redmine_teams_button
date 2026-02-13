@@ -8,6 +8,8 @@
 ユーザー名の横に「Teams」ボタンを追加し、ワンクリックでチャットを開始できるプラグインです。
 ボタンをクリックすると Teams チャットが開き、チケット情報（タイトル、URL、チケット番号）が自動入力されます。
 
+<img src="images/teams_button_01.png" width="600">
+
 詳細は [こちら](https://github.com/RedminePower/redmine_studio_plugin/blob/master/docs/teams_button.md) をご覧ください。
 
 ## 対応バージョン

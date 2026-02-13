@@ -8,6 +8,8 @@
 A plugin that adds a "Teams" button next to usernames, allowing you to start a chat with one click.
 Clicking the button opens a Teams chat pre-filled with issue information (title, URL, issue ID).
 
+<img src="images/teams_button_01.png" width="600">
+
 For details, see [here](https://github.com/RedminePower/redmine_studio_plugin/blob/master/docs/teams_button-en.md).
 
 ## Supported Versions
