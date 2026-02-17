@@ -15,7 +15,7 @@
                     })
                     .done(function(response) {
                         if (response.email === null) {
-                            alert('<%= l(:error_failed_to_get_email) %>');
+                            alert('<%= l(:error_email_not_found) %>' + ' (Id:' + userId + ')');
                         } else {
                             var teamsUrl =
                                 'https://teams.microsoft.com/l/chat/0/0?users=' + response.email +
@@ -27,7 +27,7 @@
                         }
                     })
                     .fail(function() {
-                        alert('<%= l(:error_failed_to_get_email) %>');
+                        alert('<%= l(:error_communication_failed) %>' + ' (Id:' + userId + ')');
                     });
 
                     return false;

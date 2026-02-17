@@ -1,2 +1,3 @@
 ja:
-  error_failed_to_get_email: "メールアドレスの取得に失敗しました。"
+  error_email_not_found: "ユーザーのメールアドレスの取得に失敗しました。"
+  error_communication_failed: "ユーザーのメールアドレスの取得を試みましたが、サーバーとの通信に失敗しました。"
