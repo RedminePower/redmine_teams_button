@@ -10,7 +10,7 @@
                 click: function() {
                     $.ajax({
                         type: 'GET',
-                        url: '/teams_button/user_email/' + userId,
+                        url: '<%= url_for(controller: "teams_button", action: "user_email", id: "__ID__", only_path: true) %>'.replace('__ID__', userId),
                         dataType: 'json'
                     })
                     .done(function(response) {
