@@ -11,7 +11,7 @@ module RedmineTeamsButton
     # Teams返信ボタンを表示する。
     def view_issues_edit_notes_bottom(context = {})
       # プロジェクトで指定されるモジュールが無効の場合は、以降の処理は行わない。
-      return false unless context[:issue].project.module_enabled?(:teams_button)
+      return unless context[:issue].project.module_enabled?(:teams_button)
 
       context[:controller].send(:render_to_string, {
         # partialは、「部分テンプレート」と呼ばれ、以下のルールで配置する。
